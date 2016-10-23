@@ -1,0 +1,32 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "<%= title %>",
+        "description": "<%= (typeof description !== 'undefined' ? description : '') %>",
+        "version": "<%= (typeof version !== 'undefined' ? version : '') %>"
+    },
+    "host": "<%= host %>",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/api/v1",
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "definitions": {
+      "Error": {
+        "required": ["code", "message"],
+        "properties": {
+          "code": {
+            "type": "number"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+}

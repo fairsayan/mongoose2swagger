@@ -1,0 +1,84 @@
+{
+  "get": {
+    "parameters": [
+      {
+        "name": "sort",
+        "in": "query",
+        "type": "string"
+      },
+      {
+        "name": "skip",
+        "in": "query",
+        "type": "number"
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "type": "number"
+      },
+      {
+        "name": "query",
+        "in": "query",
+        "type": "string"
+      },
+      {
+        "name": "populate",
+        "in": "query",
+        "type": "string"
+      },
+      {
+        "name": "select",
+        "in": "query",
+        "type": "string"
+      },
+      {
+        "name": "distinct",
+        "in": "query",
+        "type": "string"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Querying <%= objName %>",
+        "schema": {
+          "type": "array",
+          "items": {
+              "$ref": "#/definitions/<%= objName %>"
+          }
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "post": {
+    "parameters": [
+      {
+        "name": "<%= objName %>",
+        "in": "body",
+        "required": true,
+        "schema": {
+          "$ref": "#/definitions/New<%= objName %>"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Create a <%= objName %>",
+        "schema": {
+          "$ref": "#/definitions/<%= objName %>"
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}

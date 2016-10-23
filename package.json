@@ -1,0 +1,33 @@
+{
+  "name": "mongoose2swagger",
+  "version": "0.1.0",
+  "description": "dynamic creation of swagger json document based on mongoose schema",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fairsayan/mongoose2swagger.git"
+  },
+  "keywords": [
+    "mongoose",
+    "swagger",
+    "node"
+  ],
+  "author": "Domenico Pontari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fairsayan/mongoose2swagger/issues"
+  },
+  "homepage": "https://github.com/fairsayan/mongoose2swagger#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "mocha": "^3.1.0",
+    "mongoose": "^4.6.4"
+  },
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "lodash": "^4.16.4"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "get": {
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Get <%= objName %> with required id",
+        "schema": {
+          "$ref": "#/definitions/<%= objName %>"
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "put": {
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Update <%= objName %> with required id",
+        "schema": {
+          "$ref": "#/definitions/<%= objName %>"
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "post": {
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Update <%= objName %> with required id",
+        "schema": {
+          "$ref": "#/definitions/<%= objName %>"
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "patch": {
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Patch <%= objName %> with required id",
+        "schema": {
+          "$ref": "#/definitions/<%= objName %>"
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "delete": {
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Delete <%= objName %> with required id",
+        "schema": {
+          "$ref": "#/definitions/<%= objName %>"
+        }
+      },
+      "default": {
+        "description": "unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}
