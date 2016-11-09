@@ -12,7 +12,7 @@ const _ = require('lodash');
 exports.base = function (data, options) {
   if (typeof options === 'undefined') options = {};
   if (typeof options.packageJson === 'undefined') options.packageJson = './package.json';
-  var general = fs.readFileSync('general.json', 'utf-8');
+  var general = fs.readFileSync(__dirname + '/general.json', 'utf-8');
 
   if (options.packageJson !== null) {
     const packageJson = require(options.packageJson);
@@ -63,9 +63,9 @@ exports.addSchema = function (base, schemaName, schema) {
   definition.required.push('_id');
   base.definitions[objName] = definition;
 
-  var path = fs.readFileSync('path.json', 'utf-8');
-  var pathId = fs.readFileSync('pathId.json', 'utf-8');
-  var pathIdShallow = fs.readFileSync('pathIdShallow.json', 'utf-8');
+  var path = fs.readFileSync(__dirname + '/path.json', 'utf-8');
+  var pathId = fs.readFileSync(__dirname + '/pathId.json', 'utf-8');
+  var pathIdShallow = fs.readFileSync(__dirname + '/pathIdShallow.json', 'utf-8');
   const pathName = schemaName.toLowerCase();
   base.paths['/' + pathName] = JSON.parse(EJS.render(path, {
     objName: objName,
