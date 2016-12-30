@@ -1,6 +1,6 @@
 {
   "name": "mongoose2swagger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "dynamic creation of swagger json document based on mongoose schema",
   "main": "index.js",
   "repository": {
