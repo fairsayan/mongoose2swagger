@@ -7,7 +7,7 @@ const pathIdJsonPath = __dirname + '/pathId.json';
 const pathIdShallowJsonPath = __dirname + '/pathIdShallow.json';
 
 /***
-  * @param Object (required: host)
+  * @param Object (required: host, basePath)
   * @param {
       packageJson: String if null => it doesn't load package.json (default: 'package.json')
   * }

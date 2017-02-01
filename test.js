@@ -24,7 +24,8 @@ const mySchema = new mongoose.Schema({
 }, {timestamps: true, id: false});
 
 var swaggerDefinition = m2s.base({
-  host: 'localhost:8001'
+  host: 'localhost:8001',
+  basePath: '/api'
 });
 
 m2s.addSchema(swaggerDefinition, 'user', mySchema);
