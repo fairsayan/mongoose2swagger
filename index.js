@@ -56,6 +56,7 @@ exports.addSchema = function (base, schemaName, schema) {
     var type = field.instance.toLowerCase();
     if (['date', 'objectid'].indexOf(type) !== -1) type = 'string';
     definition.properties[fieldName] = {type: type};
+    if (type === 'array') definition.properties[fieldName].items = {type: 'string'};
   }
   
   if (definition.required.length === 0) definition.required = undefined;
