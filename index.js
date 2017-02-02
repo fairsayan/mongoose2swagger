@@ -15,7 +15,7 @@ const pathIdShallowJsonPath = __dirname + '/pathIdShallow.json';
   */
 exports.base = function (data, options) {
   if (typeof options === 'undefined') options = {};
-  if (typeof options.packageJson === 'undefined') options.packageJson = './package.json';
+  if (typeof options.packageJson === 'undefined') options.packageJson = __dirname + '/../../package.json';
   var general = fs.readFileSync(generalJsonPath, 'utf-8');
 
   if (options.packageJson !== null) {
@@ -47,7 +47,16 @@ exports.addSchema = function (base, schemaName, schema) {
     properties: {},
     required: []
   };
-  
+
+  // adding tag
+  let tag = (schema.swagger ? schema.swagger.tag : undefined);
+  if (tag !== null) {
+    tag = _.defaults(tag, {name: schemaName});
+    if (!base.tags) base.tags = [];
+    base.tags.push(tag);
+  }
+
+  // adding paths
   for (var fieldName in schema.paths) {
     if (['_id', '__v'].indexOf(fieldName) !== -1) continue; // skip these fields
 
@@ -72,16 +81,13 @@ exports.addSchema = function (base, schemaName, schema) {
   var pathId = fs.readFileSync(pathIdJsonPath, 'utf-8');
   var pathIdShallow = fs.readFileSync(pathIdShallowJsonPath, 'utf-8');
   const pathName = schemaName.toLowerCase();
-  base.paths['/' + pathName] = JSON.parse(EJS.render(path, {
+  let pathData = {
     objName: objName,
-    path: pathName
-  }));
-  base.paths['/' + pathName + '/{id}'] = JSON.parse(EJS.render(pathId, {
-    objName: objName,
-    path: pathName
-  }));
-  base.paths['/' + pathName + '/{id}/shallow'] = JSON.parse(EJS.render(pathIdShallow, {
-    objName: objName,
-    path: pathName
-  }));
+    path: pathName,
+    tags: (tag ? '"tags" : ["' + tag.name + '"],' + "\n" : tag)
+  };
+  base.paths['/' + pathName] = JSON.parse(EJS.render(path, pathData));
+  base.paths['/' + pathName + '/{id}'] = JSON.parse(EJS.render(pathId, pathData));
+  base.paths['/' + pathName + '/{id}/shallow'] = JSON.parse(EJS.render(pathIdShallow, pathData));
+
 };

@@ -5,6 +5,7 @@ mongoose2swagger is intended to be the documentation part of express-restify-mon
 It generates an object compliant with Swagger 2.0 specifications
 
 # usage
+```
 const m2s = require('mongoose2swagger');
 const util = require('util');
 
@@ -21,6 +22,7 @@ var swaggerDefinition = m2s.base({
 
 m2s.addSchema(swaggerDefinition, 'customer', mySchema);
 console.log(util.inspect(JSON.stringify(swaggerDefinition), false, null));
+```
 
 # methods
 
@@ -42,3 +44,18 @@ the base structure of swagger document
 the name of the endpoints
 ### schema
 mongoose schema object
+By default each endpoint inside the schema will have a "tag" attribute equal to schemaName, if you want to specify a different tag for each endpoint of the schema add the info in the schema options:
+```
+const mySchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  comment: { type: String }
+}, {
+  swagger: {
+    tag: {
+      name: 'mySpecialTag',
+      description: 'all the endpoints of this schema will have "mySpecialTag" tag'
+    }
+  }
+});
+```
+if you don't want to a have a tag you'll set tag as null

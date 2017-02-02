@@ -1,5 +1,6 @@
 {
   "get": {
+    <%- tags %>
     "parameters": [
       {
         "name": "id",

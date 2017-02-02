@@ -1,5 +1,6 @@
 {
   "get": {
+    <%- tags %>
     "parameters": [
       {
         "name": "id",
@@ -24,6 +25,7 @@
     }
   },
   "put": {
+    <%- tags %>
     "parameters": [
       {
         "name": "id",
@@ -48,6 +50,7 @@
     }
   },
   "post": {
+    <%- tags %>
     "parameters": [
       {
         "name": "id",
@@ -72,6 +75,7 @@
     }
   },
   "patch": {
+    <%- tags %>
     "parameters": [
       {
         "name": "id",
@@ -96,6 +100,7 @@
     }
   },
   "delete": {
+    <%- tags %>
     "parameters": [
       {
         "name": "id",

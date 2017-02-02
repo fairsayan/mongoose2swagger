@@ -1,5 +1,6 @@
 {
   "get": {
+    <%- tags %>
     "parameters": [
       {
         "name": "sort",
@@ -56,6 +57,7 @@
     }
   },
   "post": {
+    <%- tags %>
     "parameters": [
       {
         "name": "<%= objName %>",

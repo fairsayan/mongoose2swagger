@@ -21,11 +21,21 @@ const mySchema = new mongoose.Schema({
   activities: [{type: ObjectId, ref: 'activity'}], // proxy value from activity collection (members.user): it shouldn't be edited directly
   lastLogin: Date,
   bounces: {type: Number, required: true, default: 0}
-}, {timestamps: true, id: false});
+}, {
+  timestamps: true,
+  id: false,
+  swagger: {
+    tag: {
+      description: 'this is a swagger schema'
+    }
+  }
+});
 
 var swaggerDefinition = m2s.base({
   host: 'localhost:8001',
   basePath: '/api'
+}, {
+  packageJson: './package.json'
 });
 
 m2s.addSchema(swaggerDefinition, 'user', mySchema);
