@@ -1,7 +1,7 @@
 # mongoose2swagger
 generation of swagger document based on mongoose schema
 
-mongoose2swagger is intended to be the documentation part of express-restify-mongoose [https://florianholzapfel.github.io/express-restify-mongoose/#getting-started].
+mongoose2swagger is intended to be the documentation part of express-restify-mongoose [express-restify-mongoose](https://florianholzapfel.github.io/express-restify-mongoose/#getting-started).
 It generates an object compliant with Swagger 2.0 specifications
 
 # usage
