@@ -64,6 +64,7 @@ exports.addSchema = function (base, schemaName, schema) {
     if (field.options.required) definition.required.push(fieldName);
     var type = field.instance.toLowerCase();
     if (['date', 'objectid'].indexOf(type) !== -1) type = 'string';
+    if (['mixed'].indexOf(type) !== -1) type = 'object';
     definition.properties[fieldName] = {type: type};
     if (type === 'array') definition.properties[fieldName].items = {type: 'string'};
   }
