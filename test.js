@@ -20,7 +20,8 @@ const mySchema = new mongoose.Schema({
   isAdmin: Boolean,
   activities: [{type: ObjectId, ref: 'activity'}], // proxy value from activity collection (members.user): it shouldn't be edited directly
   lastLogin: Date,
-  bounces: {type: Number, required: true, default: 0}
+  bounces: {type: Number, required: true, default: 0},
+  thumbnails: { type: 'Mixed' }
 }, {
   timestamps: true,
   id: false,
